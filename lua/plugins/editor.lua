@@ -2,7 +2,18 @@ return {
   {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
+    opts = {
+      previewers = {
+        builtin = {
+          syntax_limit_b = 1024 * 100,
+        }
+      },
+      grep = {
+        rg_glob = true,
+        glob_flag = "--iglob",
+        glob_separator = "%s%-%-"
+      }
+    },
     keys = {
       { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
       { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
@@ -27,9 +38,10 @@ return {
     lazy = false,
     config = function() 
       require("mini.files").setup()
+      require("mini.comment").setup()
     end,
     keys = {
-      { "<C-b>", function() MiniFiles.open() end, desc = "Open MiniFiles" }
+      { "<leader>e", function() MiniFiles.open() end, desc = "Open MiniFiles" }
     }
   }
 }
