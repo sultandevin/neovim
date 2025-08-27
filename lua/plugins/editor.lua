@@ -1,8 +1,9 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "echasnovski/mini.icons" },
     opts = {
+      "hide",
       previewers = {
         builtin = {
           syntax_limit_b = 1024 * 100,
@@ -15,10 +16,12 @@ return {
       }
     },
     keys = {
-      { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
-      { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
-      { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
-      { "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
+      { "<C-p>", "<cmd>FzfLua files resume=true<cr>", desc = "Find Files" },
+      { "<C-g>", "<cmd>FzfLua grep<cr>", desc = "Grep" },
+      { "<C-k>", "<cmd>FzfLua builtin commands<cr>", desc = "Builtin Commands" },
+      { "<C-l>", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
+      { "<C-\\>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+      { "F1", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
     }
   },
   {
@@ -27,7 +30,7 @@ return {
     lazy = false, 
     build = ":TSUpdate",
     opts = {
-      ensure_installed = {"javascript", "lua", "typescript"},
+      auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     }
@@ -38,10 +41,10 @@ return {
     lazy = false,
     config = function() 
       require("mini.files").setup()
-      require("mini.comment").setup()
+      require("mini.icons").setup()
     end,
     keys = {
-      { "<leader>e", function() MiniFiles.open() end, desc = "Open MiniFiles" }
+      { "<C-b>", function() MiniFiles.open() end, desc = "Open MiniFiles" }
     }
   }
 }
