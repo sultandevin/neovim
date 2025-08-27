@@ -1,10 +1,12 @@
 return {
   {
     "mason-org/mason.nvim",
+    lazy = false,
     opts = {}
   },
   {
     "mason-org/mason-lspconfig.nvim",
+    lazy = false,
     opts = {
       ensure_installed = { "lua_ls", "ts_ls" }
     },
@@ -15,41 +17,22 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    config = function() 
+    lazy = false,
+    config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.ts_ls.setup({})
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities
+      })
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-    end
-  },
-  {
-      'hrsh7th/nvim-cmp',
-      dependencies = {
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'saadparwaiz1/cmp_luasnip', -- Example for snippet integration
-        'L3MON4D3/LuaSnip',
-      },
-      config = function()
-        local cmp = require('cmp')
-        local luasnip = require('luasnip') -- If using snippets
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
 
-        cmp.setup({
-          snippet = {
-            expand = function(args)
-              luasnip.lsp_expand(args.body) -- Example for snippet engine
-            end,
-          },
-          sources = cmp.config.sources({
-            { name = 'nvim_lsp' },
-            { name = 'buffer' },
-            { name = 'path' },
-            { name = 'luasnip' }, -- If using snippets
-          }),
-          -- Further configuration for keymaps, appearance, etc.
-        })
-      end,
-    }
+    end
+  }
 }
