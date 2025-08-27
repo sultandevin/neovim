@@ -1,7 +1,7 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    dependencies = { "echasnovski/mini.icons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       "hide",
       previewers = {
@@ -35,16 +35,29 @@ return {
       indent = { enable = true },
     }
   },
-  { 
+  {
     'echasnovski/mini.nvim', 
     version = false, 
     lazy = false,
     config = function() 
-      require("mini.files").setup()
-      require("mini.icons").setup()
+      require("mini.files").setup({
+        windows = {
+          preview = true
+        }
+      })
     end,
     keys = {
       { "<C-b>", function() MiniFiles.open() end, desc = "Open MiniFiles" }
+    }
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    },
+    opts = {
+      icons_enabled = true,
+      theme = 'auto',
     }
   }
 }
