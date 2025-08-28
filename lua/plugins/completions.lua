@@ -71,8 +71,4 @@ return {
 			})
 		end,
 	},
-	{
-		"m4xshen/autoclose.nvim",
-		opts = {},
-	},
 }
