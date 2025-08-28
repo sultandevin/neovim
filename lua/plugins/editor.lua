@@ -20,7 +20,7 @@ return {
 			{ "<C-g>", "<cmd>FzfLua grep<cr>", desc = "Grep" },
 			{ "<C-k>", "<cmd>FzfLua builtin commands<cr>", desc = "Builtin Commands" },
 			{ "<C-l>", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
-			{ "<C-\\>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+			-- { "<C-\\>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
 			{ "F1", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
 		},
 	},
