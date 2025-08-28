@@ -1,7 +1,7 @@
 return {
 	{
 		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { "echasnovski/mini.nvim" },
 		opts = {
 			{
 				"ivy",
@@ -25,10 +25,10 @@ return {
 		keys = {
 			{ "<C-p>", "<cmd>FzfLua files<cr>", desc = "Find Files" },
 			{ "<C-g>", "<cmd>FzfLua grep<cr>", desc = "Grep" },
-			{ "<C-k>", "<cmd>FzfLua builtin commands<cr>", desc = "Builtin Commands" },
 			{ "<C-l>", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
+			-- { "<C-k>", "<cmd>FzfLua builtin commands<cr>", desc = "Builtin Commands" },
 			-- { "<C-\\>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
-			{ "F1", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
+			-- { "F1", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
 		},
 	},
 	{
@@ -55,6 +55,7 @@ return {
 			require("mini.files").setup({
 				windows = {
 					preview = true,
+          width_preview = 30,
 				},
 			})
 			require("mini.pairs").setup()
@@ -62,7 +63,10 @@ return {
 			require("mini.tabline").setup()
 			require("mini.indentscope").setup()
 			require("mini.surround").setup()
+			require("mini.icons").setup()
 			require("mini.statusline").setup()
+			require("mini.cursorword").setup()
+			require("mini.starter").setup()
 		end,
 		keys = {
 			{
