@@ -17,7 +17,7 @@ return {
         "github_dark_default",
         "kanagawa-wave",
         "kanagawa-dragon",
-        -- "kanagawa-lotus",
+        "kanagawa-lotus",
         "catppuccin-frappe",
         "catppuccin-macchiato",
         "catppuccin-mocha",
