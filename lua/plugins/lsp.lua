@@ -58,6 +58,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.go.setup({
+				capabilities = capabilities,
+			})
+
 			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
