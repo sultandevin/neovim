@@ -13,10 +13,14 @@ return {
 				null_ls.builtins.formatting.prettier,
 				-- require("none-ls.diagnostics.eslint_d"),
 			},
+
 		})
 
-		vim.keymap.set("n", "<leader>gf", function()
-			vim.lsp.buf.format({ timeout_ms = 2000 })
-		end, {})
+		vim.keymap.set("n", "<leader>gf",
+      function()
+       vim.lsp.buf.format({ timeout_ms = 2000 })
+      end,
+      {}
+    )
 	end,
 }

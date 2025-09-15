@@ -8,6 +8,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
 			"petertriho/cmp-git",
 			"hrsh7th/cmp-nvim-lsp",
@@ -53,6 +54,7 @@ return {
 			})
 			require("cmp_git").setup()
 
+			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
@@ -60,6 +62,7 @@ return {
 				},
 			})
 
+			-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
@@ -70,5 +73,15 @@ return {
 				matching = { disallow_symbol_nonprefix_matching = false },
 			})
 		end,
+		keys = {
+			{
+				"<C-c>",
+				function()
+					require("cmp").complete()
+				end,
+				desc = "Trigger completion",
+				mode = { "i", "n" },
+			},
+		},
 	},
 }
