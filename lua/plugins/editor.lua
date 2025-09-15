@@ -4,7 +4,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			{
-				"telescope",
+				"ivy",
 			},
 			-- resume = true,
 			oldfiles = {
