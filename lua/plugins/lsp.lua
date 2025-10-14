@@ -19,64 +19,58 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
-        commands = {
-          OrganizeImports = {
-            function()
-              local client = vim.lsp.get_clients({ name = "ts_ls" })[1]
-
-              if not client then
-                vim.notify("No ts_ls client found!", vim.log.levels.ERROR)
-                return
-              end
-
-              client:exec_cmd({
-                command = "_typescript.organizeImports",
-                arguments = { vim.api.nvim_buf_get_name(0) },
-                title = "Organize Imports",
-              })
-                vim.notify("Imports sorted!", vim.log.levels.INFO)
-            end,
-            description = "Organize Imports",
-          },
-        },
-			})
-
-			lspconfig.svelte.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.tailwindcss.setup({
-				capabilities = capabilities,
-			})
-
-			-- lspconfig.go.setup({
-			-- 	capabilities = capabilities,
+			-- vim.lsp.config("ts_ls", {
+			--   cmd = { "typescript-language-server" },
 			-- })
 
-			lspconfig.html.setup({
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.dockerls.setup({
+      vim.lsp.config("ts_ls", {
+        capabilities = capabilities,
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "<leader>oi", function()
+            vim.lsp.buf.execute_command({
+              command = "_typescript.organizeImports",
+              arguments = { vim.api.nvim_buf_get_name(bufnr) },
+            })
+          end, { buffer = bufnr, desc = "Organize imports" })
+        end,
+      })
+
+			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.docker_compose_language_service.setup({
+			vim.lsp.config("jsonls", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.copilot.setup({
-				capabilities = capabilities,
-			})
+			vim.lsp.enable({ "ts_ls", "jsonls", "lua_ls" })
+
+			--
+			-- lspconfig.svelte.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			--
+			-- lspconfig.tailwindcss.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			--
+			-- lspconfig.html.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			--
+			-- lspconfig.dockerls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			--
+			-- lspconfig.docker_compose_language_service.setup({
+			-- 	capabilities = capabilities,
+			-- })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
