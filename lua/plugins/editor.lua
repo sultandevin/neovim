@@ -4,17 +4,25 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			{
-				"default",
+				"telescope",
+			},
+			winopts = {
+				height = 0.7,
+				width = 0.65,
+				border = "rounded",
+				preview = {
+					hidden = "hidden",
+				},
 			},
 			-- resume = true,
 			oldfiles = {
 				include_current_session = true,
 			},
-			previewers = {
-				builtin = {
-					syntax_limit_b = 1024 * 100,
-				},
-			},
+			-- previewers = {
+			-- 	builtin = {
+			-- 		syntax_limit_b = 1024 * 100,
+			-- 	},
+			-- },
 			grep = {
 				git_icons = true,
 				rg_glob = true,
@@ -64,15 +72,20 @@ return {
 					width_preview = 30,
 				},
 			})
+			require("mini.ai").setup()
 			require("mini.pairs").setup()
 			require("mini.notify").setup()
 			require("mini.tabline").setup()
 			require("mini.indentscope").setup()
 			require("mini.surround").setup()
+			require("mini.pairs").setup()
 			-- require("mini.icons").setup()
 			require("mini.statusline").setup()
 			require("mini.cursorword").setup()
 			require("mini.bracketed").setup()
+			require("mini.starter").setup()
+			-- require("mini.animate").setup()
+			require("mini.map").setup()
 		end,
 		keys = {
 			{

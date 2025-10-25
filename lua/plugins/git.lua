@@ -5,10 +5,10 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {},
-		config = function()
-			vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
-			vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
-		end,
+    keys = {
+      { "<leader>gp", ":Gitsigns preview_hunk<CR>", desc = "Preview Hunk" },
+      { "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", desc = "Toggle Blame" },
+    },
 	},
 }
 

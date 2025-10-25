@@ -15,8 +15,11 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>gf", function()
-			vim.lsp.buf.format({ timeout_ms = 2000 })
-		end, {})
+		-- vim.keymap.set("n", "<leader>gf", function()
+		-- 	vim.lsp.buf.format({ timeout_ms = 2000 })
+		-- end, {})
 	end,
+  keys = {
+    { "<leader>gf", function() vim.lsp.buf.format({ timeout_ms = 2000 }) end, desc = "Format File" },
+  },
 }

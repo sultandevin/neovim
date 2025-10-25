@@ -19,10 +19,6 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			-- vim.lsp.config("ts_ls", {
-			--   cmd = { "typescript-language-server" },
-			-- })
-
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			vim.lsp.config("lua_ls", {
