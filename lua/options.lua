@@ -1,20 +1,28 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set number relativenumber")
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.tabstop = 2
+vim.o.winborder = "rounded"
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+vim.o.breakindent = true
+vim.o.smartcase = true
+vim.o.cursorline = true
+vim.o.signcolumn = "yes"
+vim.o.completeopt = "menu,menuone,popup,noinsert,fuzzy"
 
--- local opts = { noremap = true, silent = true }
-
--- Copy to clipboard
+-- Default Keymaps
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save File" })
+vim.keymap.set("n", "<leader>d", ":bd<CR>", { desc = "Close Buffer" })
+vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit NeoVim" })
+vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Visual Copy to Clipboard" })
 vim.keymap.set("n", "<leader>Y", '"+yg_', { desc = "Normal Copy to EOL to Clipboard" })
 vim.keymap.set("n", "<leader>y", '"+y', { desc = "Normal Operator Copy to Clipboard" })
 vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Normal Copy Line to Clipboard" })
-
--- Paste from clipboard
 vim.keymap.set("n", "<leader>p", '"+p', { desc = "Normal Paste From Clipboard" })
 vim.keymap.set("n", "<leader>P", '"+P', { desc = "Normal Paste Before From Clipboard" })
 vim.keymap.set("v", "<leader>p", '"+p', { desc = "Visual Paste From Clipboard" })
 vim.keymap.set("v", "<leader>P", '"+P', { desc = "Visual Paste Before From Clipboard" })
-
+vim.keymap.set("i", "<C-x>", vim.lsp.completion.get)

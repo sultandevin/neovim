@@ -1,7 +1,7 @@
 return {
 	{
 		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { "nvim-mini/mini.icons" },
 		opts = {
 			{
 				"telescope",
@@ -14,7 +14,6 @@ return {
 					hidden = "hidden",
 				},
 			},
-			-- resume = true,
 			oldfiles = {
 				include_current_session = true,
 			},
@@ -34,8 +33,8 @@ return {
 			{ "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files" },
 			{ "<leader>fg", "<cmd>FzfLua grep<cr>", desc = "Grep" },
 			{ "<leader>fl", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
+			{ "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
 			-- { "<C-k>", "<cmd>FzfLua builtin commands<cr>", desc = "Builtin Commands" },
-			-- { "<C-\\>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
 			-- { "F1", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
 		},
 	},
@@ -59,42 +58,6 @@ return {
 		"nvim-treesitter/nvim-treesitter-context",
 		opts = {
 			enable = true,
-		},
-	},
-	{
-		"nvim-mini/mini.nvim",
-		version = false,
-		lazy = false,
-		config = function()
-			require("mini.files").setup({
-				windows = {
-					preview = true,
-					width_preview = 30,
-				},
-			})
-			require("mini.ai").setup()
-			require("mini.pairs").setup()
-			require("mini.notify").setup()
-			require("mini.tabline").setup()
-			require("mini.indentscope").setup()
-			require("mini.surround").setup()
-			require("mini.pairs").setup()
-			-- require("mini.icons").setup()
-			require("mini.statusline").setup()
-			require("mini.cursorword").setup()
-			require("mini.bracketed").setup()
-			require("mini.starter").setup()
-			-- require("mini.animate").setup()
-			require("mini.map").setup()
-		end,
-		keys = {
-			{
-				"-",
-				function()
-					MiniFiles.open()
-				end,
-				desc = "Open MiniFiles",
-			},
 		},
 	},
 	{
