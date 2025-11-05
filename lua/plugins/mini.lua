@@ -3,12 +3,12 @@ return {
 	version = false,
 	lazy = false,
 	config = function()
-		require("mini.files").setup({
-			windows = {
-				preview = false,
-				width_preview = 30,
-			},
-		})
+		-- require("mini.files").setup({
+		-- 	windows = {
+		-- 		preview = false,
+		-- 		width_preview = 30,
+		-- 	},
+		-- })
 		require("mini.ai").setup()
 		require("mini.notify").setup()
 		require("mini.indentscope").setup()
@@ -52,6 +52,10 @@ return {
 				{ mode = "x", keys = "z" },
 			},
 
+      window = {
+        delay = 500,
+      },
+
 			clues = {
 				-- Enhance this by adding descriptions for <Leader> mapping groups
 				miniclue.gen_clues.builtin_completion(),
@@ -83,13 +87,13 @@ return {
 		})
 	end,
 	keys = {
-		{
-			"-",
-			function()
-				MiniFiles.open()
-			end,
-			desc = "Open Explorer",
-		},
+		-- {
+		-- 	"-",
+		-- 	function()
+		-- 		MiniFiles.open()
+		-- 	end,
+		-- 	desc = "Open Explorer",
+		-- },
 		{
 			"<leader>ff",
 			function()
