@@ -3,12 +3,6 @@ return {
 	version = false,
 	lazy = false,
 	config = function()
-		-- require("mini.files").setup({
-		-- 	windows = {
-		-- 		preview = false,
-		-- 		width_preview = 30,
-		-- 	},
-		-- })
 		require("mini.ai").setup()
 		require("mini.notify").setup()
 		require("mini.indentscope").setup()
@@ -24,9 +18,6 @@ return {
 				-- Leader triggers
 				{ mode = "n", keys = "<Leader>" },
 				{ mode = "x", keys = "<Leader>" },
-
-				-- Built-in completion
-				-- { mode = "i", keys = "<C-x>" },
 
 				-- `g` key
 				{ mode = "n", keys = "g" },
@@ -66,7 +57,6 @@ return {
 				miniclue.gen_clues.z(),
 			},
 		})
-		-- require("mini.starter").setup()
 
 		local win_config = function()
 			local height = math.floor(0.5 * vim.o.lines)
@@ -87,13 +77,6 @@ return {
 		})
 	end,
 	keys = {
-		-- {
-		-- 	"-",
-		-- 	function()
-		-- 		MiniFiles.open()
-		-- 	end,
-		-- 	desc = "Open Explorer",
-		-- },
 		{
 			"<leader>ff",
 			function()

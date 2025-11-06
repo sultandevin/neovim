@@ -1,6 +1,6 @@
 # sultandevin's Neovim Config 
 
-Minimal config I use daily. 
+Minimal, no bells and whistles config I use daily. 
 
 ## Features
 

@@ -33,11 +33,6 @@ return {
 			})
 
 			vim.lsp.enable({ "ts_ls", "jsonls", "lua_ls", "postgres_lsp", "emmet_language_server" })
-
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-			vim.diagnostic.enable()
 		end,
 	},
 }

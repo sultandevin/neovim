@@ -20,7 +20,7 @@ vim.o.hlsearch = false
 vim.o.termguicolors = true
 vim.o.cursorline = true
 vim.o.signcolumn = "yes"
-vim.o.completeopt = "menuone,noinsert,noselect"
+vim.o.completeopt = "menuone,noinsert"
 
 -- Default Keymaps
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" })
@@ -40,3 +40,10 @@ vim.keymap.set("n", "<leader>P", '"+P', { desc = "Normal Paste (before)" })
 vim.keymap.set("v", "<leader>p", '"+p', { desc = "Visual Paste" })
 vim.keymap.set("v", "<leader>P", '"+P', { desc = "Visual Paste (before)" })
 
+-- Editor Keymaps
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+
+-- Typescript Specific
+vim.keymap.set("n", "<leader>ta", ":LspTypescriptSourceAction<CR>", { desc = "TS Actions" })
