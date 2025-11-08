@@ -32,7 +32,7 @@ vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
 vim.keymap.set("n", "<leader>gf", function()
   vim.lsp.buf.format({ timeout_ms = 2000 })
 end, { desc = "Format File" })
-vim.keymap.set("i", "<C-x>", vim.lsp.completion.get)
+-- vim.keymap.set("i", "<C-x>", vim.lsp.completion.get)
 
 -- Clipboard Keymaps
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Visual Copy" })

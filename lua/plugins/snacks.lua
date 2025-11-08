@@ -36,6 +36,12 @@ return {
 			end,
 			desc = "Find Files",
 		},
+		{
+			"<leader>h",
+			function()
+				Snacks.picker.help()
+			end,
+		},
 		-- gh
 		{
 			"<leader>gi",
