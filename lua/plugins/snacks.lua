@@ -2,9 +2,10 @@ return {
 	"folke/snacks.nvim",
 	opts = {
 		picker = {
-			prompt = "> ",
+			prompt = " > ",
 			layout = {
 				preset = "telescope",
+				preview = false,
 				layout = {
 					width = 0.7,
 					height = 0.7,
