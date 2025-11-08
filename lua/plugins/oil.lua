@@ -12,6 +12,7 @@ return {
 			max_height = 0.5,
 			border = "rounded",
 		},
+    show_hidden = true,
 		keymaps_help = {
 			border = "rounded",
 		},

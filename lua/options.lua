@@ -20,7 +20,8 @@ vim.o.hlsearch = false
 vim.o.termguicolors = true
 vim.o.cursorline = true
 vim.o.signcolumn = "yes"
-vim.o.completeopt = "menuone,noinsert"
+vim.o.completeopt = "menuone,noinsert,fuzzy"
+vim.cmd(":hi statusline guibg=none")
 
 -- Default Keymaps
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" })
@@ -28,6 +29,9 @@ vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save File" })
 vim.keymap.set("n", "<leader>d", ":bd<CR>", { desc = "Close Buffer" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit NeoVim" })
 vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
+vim.keymap.set("n", "<leader>gf", function()
+  vim.lsp.buf.format({ timeout_ms = 2000 })
+end, { desc = "Format File" })
 vim.keymap.set("i", "<C-x>", vim.lsp.completion.get)
 
 -- Clipboard Keymaps
