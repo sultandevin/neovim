@@ -11,6 +11,7 @@ vim.o.softtabstop = 2 -- Soft Tab Stop
 vim.o.expandtab = true -- Use Spaces Instead of Tabs
 vim.o.smartindent = true -- Smart Indentation
 vim.o.autoindent = true -- Copy indent from current line
+vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
 
 -- Search
 vim.o.smartcase = true
@@ -46,31 +47,40 @@ vim.o.autoread = true
 -- Behavior
 vim.o.backspace = "indent,eol,start"
 
+local map = vim.keymap.set
+
 -- Default Keymaps
-vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" })
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save File" })
-vim.keymap.set("n", "<leader>d", ":bd<CR>", { desc = "Close Buffer" })
-vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit NeoVim" })
-vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy" })
-vim.keymap.set("n", "<leader>gf", function()
+map("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" })
+map("n", "<leader>w", ":w<CR>", { desc = "Save File" })
+map("n", "<leader>d", ":bd<CR>", { desc = "Close Buffer" })
+map("n", "<leader>q", ":q<CR>", { desc = "Quit NeoVim" })
+map("n", "<leader>ll", ":Lazy<CR>", { desc = "Open Lazy" })
+map("n", "<leader>gf", function()
 	vim.lsp.buf.format({ timeout_ms = 2000 })
 end, { desc = "Format File" })
-vim.keymap.set("i", "<C-c>", vim.lsp.completion.get)
+map("n", "<leader>e", ":e!<CR>", { desc = " File" })
+-- map("i", "<C-c>", vim.lsp.completion.get)
 
 -- Clipboard Keymaps
-vim.keymap.set("v", "<leader>y", '"+y', { desc = "Visual Copy" })
--- vim.keymap.set("n", "<leader>Y", '"+yg_', { desc = "Normal Copy to EOL to Clipboard" })
-vim.keymap.set("n", "<leader>y", '"+y', { desc = "Normal Operator Copy" })
-vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Normal Copy Line" })
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "Normal Paste" })
-vim.keymap.set("n", "<leader>P", '"+P', { desc = "Normal Paste (before)" })
-vim.keymap.set("v", "<leader>p", '"+p', { desc = "Visual Paste" })
-vim.keymap.set("v", "<leader>P", '"+P', { desc = "Visual Paste (before)" })
+map("v", "<leader>y", '"+y', { desc = "Visual Copy" })
+-- map("n", "<leader>Y", '"+yg_', { desc = "Normal Copy to EOL to Clipboard" })
+map("n", "<leader>y", '"+y', { desc = "Normal Operator Copy" })
+map("n", "<leader>yy", '"+yy', { desc = "Normal Copy Line" })
+map("n", "<leader>p", '"+p', { desc = "Normal Paste" })
+map("n", "<leader>P", '"+P', { desc = "Normal Paste (before)" })
+map("v", "<leader>p", '"+p', { desc = "Visual Paste" })
+map("v", "<leader>P", '"+P', { desc = "Visual Paste (before)" })
 
 -- Editor Keymaps
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 -- Typescript Specific
-vim.keymap.set("n", "<leader>ta", ":LspTypescriptSourceAction<CR>", { desc = "TS Actions" })
+map("n", "<leader>ta", ":LspTypescriptSourceAction<CR>", { desc = "TS Actions" })
+
+-- Open help in vertical split
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	command = "wincmd L",
+})
+

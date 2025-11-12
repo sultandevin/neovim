@@ -15,16 +15,6 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			-- This is for native autocompletion (maybe wait for NeoVim 0.12.x)
-			vim.api.nvim_create_autocmd("LspAttach", {
-				callback = function(ev)
-					local client = vim.lsp.get_client_by_id(ev.data.client_id)
-					if client:supports_method("textDocument/completion") then
-						vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-					end
-				end,
-			})
-
 			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
@@ -41,8 +31,10 @@ return {
 
 			vim.lsp.enable({
 				"tsgo",
+        -- "vtsls",
 				"jsonls",
 				"lua_ls",
+        "docker_language_server",
 				"postgres_lsp",
 				"svelte",
 				"stylua",
