@@ -7,9 +7,6 @@ return {
         border = "rounded",
       },
     },
-		keys = {
-			{ "<leader>cm", "<CMD>Mason<CR>", desc = "Mason" },
-		},
 	},
 	{
 		"neovim/nvim-lspconfig",

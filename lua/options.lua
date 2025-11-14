@@ -54,7 +54,6 @@ map("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" }
 map("n", "<leader>w", ":w<CR>", { desc = "Save File" })
 map("n", "<leader>d", ":bd<CR>", { desc = "Close Buffer" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit NeoVim" })
-map("n", "<leader>ll", ":Lazy<CR>", { desc = "Open Lazy" })
 map("n", "<leader>gf", function()
 	vim.lsp.buf.format({ timeout_ms = 2000 })
 end, { desc = "Format File" })
@@ -75,6 +74,10 @@ map("v", "<leader>P", '"+P', { desc = "Visual Paste (before)" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
+-- Plugins Keymaps
+map("n", "<leader>L", ":Lazy<CR>", { desc = "Open Lazy" })
+map("n", "<leader>M", ":Mason<CR>", { desc = "Open Mason" })
+
 -- Typescript Specific
 map("n", "<leader>ta", ":LspTypescriptSourceAction<CR>", { desc = "TS Actions" })
 
@@ -83,4 +86,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "help",
 	command = "wincmd L",
 })
-
