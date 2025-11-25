@@ -3,10 +3,10 @@ return {
 		"mason-org/mason.nvim",
 		lazy = false,
 		opts = {
-      ui = {
-        border = "rounded",
-      },
-    },
+			ui = {
+				border = "rounded",
+			},
+		},
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -27,12 +27,17 @@ return {
 			})
 
 			vim.lsp.enable({
-				"tsgo",
-        -- "vtsls",
+				-- "tsgo",
+				"vtsls",
 				"jsonls",
 				"lua_ls",
-        "docker_language_server",
+				"prettier",
+				"gh_actions_ls",
+				"yamlls",
+				"docker_language_server",
+				"docker_compose_language_service",
 				"postgres_lsp",
+				"rust_analyzer",
 				"svelte",
 				"stylua",
 				"emmet_language_server",

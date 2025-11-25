@@ -38,6 +38,13 @@ return {
 			desc = "Find Files",
 		},
 		{
+			"<leader>gL",
+			function()
+				Snacks.picker.git_log_line()
+			end,
+			desc = "Git Log Line",
+		},
+		{
 			"<leader>h",
 			function()
 				Snacks.picker.help()

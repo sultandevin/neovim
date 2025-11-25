@@ -37,3 +37,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		end)
 	end,
 })
+
+-- Set up an autocmd to check for file changes when Neovim gains focus or a buffer is entered
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+	command = "if mode() != 'c' | checktime | endif", -- checktime updates the buffer if the file has changed
+	pattern = "*", -- Apply to all files
+})
+
+-- Hide all semantic highlights
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+	vim.api.nvim_set_hl(0, group, {})
+end

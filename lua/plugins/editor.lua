@@ -53,21 +53,8 @@ return {
 		opts_extend = { "sources.default" },
 	},
 	{
-		"piersolenski/import.nvim",
-		dependencies = {
-			"folke/snacks.nvim",
-		},
-		opts = {
-			picker = "snacks",
-		},
-		keys = {
-			{
-				"<leader>fi",
-				function()
-					require("import").pick()
-				end,
-				desc = "Import",
-			},
-		},
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
 	},
 }
