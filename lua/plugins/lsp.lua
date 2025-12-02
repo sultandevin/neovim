@@ -1,16 +1,19 @@
 return {
 	{
-		"mason-org/mason.nvim",
-		lazy = false,
-		opts = {
-			ui = {
-				border = "rounded",
-			},
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
+		dependencies = {
+			"mason-org/mason.nvim",
+      opts = {}
+		},
+		opts = {
+			inlay_hints = {
+				enabled = true,
+			},
+			folds = {
+				enabled = true,
+			},
+		},
 		config = function()
 			vim.lsp.config("lua_ls", {
 				settings = {
@@ -29,20 +32,21 @@ return {
 			vim.lsp.enable({
 				-- "tsgo",
 				"vtsls",
+				"emmet_language_server",
+				"biome",
 				"jsonls",
+				"tailwindcss",
 				"lua_ls",
+				-- "copilot",
 				"prettier",
 				"gh_actions_ls",
 				"yamlls",
-				"docker_language_server",
-				"docker_compose_language_service",
 				"postgres_lsp",
 				"rust_analyzer",
 				"svelte",
 				"stylua",
-				"emmet_language_server",
-				"tailwindcss",
-				"biome",
+				"docker_language_server",
+				"texlab",
 			})
 		end,
 	},

@@ -17,7 +17,9 @@ return {
 			triggers = {
 				-- Leader triggers
 				{ mode = "n", keys = "<Leader>" },
+				{ mode = "n", keys = "<LocalLeader>" },
 				{ mode = "x", keys = "<Leader>" },
+				{ mode = "x", keys = "<LocalLeader>" },
 
 				-- `g` key
 				{ mode = "n", keys = "g" },

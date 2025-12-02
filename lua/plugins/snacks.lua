@@ -1,5 +1,6 @@
 return {
 	"folke/snacks.nvim",
+	dependencies = { "nvim-mini/mini.icons" },
 	opts = {
 		picker = {
 			prompt = " > ",
@@ -9,6 +10,11 @@ return {
 				layout = {
 					width = 0.7,
 					height = 0.7,
+				},
+			},
+			icons = {
+				files = {
+					enabled = true,
 				},
 			},
 		},
