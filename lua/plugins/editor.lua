@@ -26,9 +26,6 @@ return {
 			"nvim-mini/mini.snippets",
 			{
 				"fang2hou/blink-copilot",
-				opts = {
-					kind_icon = "",
-				},
 			},
 		},
 		build = "cargo build --release", -- for delimiters
