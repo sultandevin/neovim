@@ -20,8 +20,6 @@ return {
 	},
 	{
 		"saghen/blink.cmp",
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
 		dependencies = {
 			"nvim-mini/mini.snippets",
 			{
@@ -34,7 +32,6 @@ return {
 			snippets = {
 				preset = "luasnip",
 			},
-
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer", "copilot" },
 				providers = {
@@ -45,7 +42,6 @@ return {
 					},
 				},
 			},
-
 			keymap = {
 				preset = "default",
 				["<C-x>"] = {

@@ -4,7 +4,7 @@ return {
 		lazy = false,
 		dependencies = {
 			"mason-org/mason.nvim",
-      opts = {}
+			opts = {},
 		},
 		opts = {
 			inlay_hints = {
@@ -15,38 +15,34 @@ return {
 			},
 		},
 		config = function()
-			vim.lsp.config("lua_ls", {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-						workspace = {
-							library = vim.api.nvim_get_runtime_file("", true),
-							checkThirdParty = false,
-						},
-					},
-				},
-			})
-
 			vim.lsp.enable({
-				-- "tsgo",
-				"vtsls",
-				"emmet_language_server",
+        -- Javascript/Typescript
+				"tsgo",
+				-- "vtsls",
+				"emmet_ls",
 				"biome",
-				"jsonls",
 				"tailwindcss",
-				"lua_ls",
-				-- "copilot",
-				"prettier",
-				"gh_actions_ls",
-				"yamlls",
-				"postgres_lsp",
-				"rust_analyzer",
 				"svelte",
+        -- Lua/Vim
+				"lua_ls",
 				"stylua",
-				"docker_language_server",
 				"texlab",
+        -- Python
+        "basedpyright",
+        "ruff",
+        -- Github
+				"copilot",
+				"gh_actions_ls",
+        -- Docker
+				"docker_language_server",
+        -- Rust
+				"rust_analyzer",
+        -- Databases
+				"postgres_lsp",
+        -- General
+				"prettier",
+				"yamlls",
+				"jsonls",
 			})
 		end,
 	},

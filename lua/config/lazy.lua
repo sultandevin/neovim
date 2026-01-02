@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>td", function()
 end, { silent = true, noremap = true, desc = "Toggle Diagnostics" })
 
 require("options")
-require("config.diagnostics")
+require("autocmds")
 
 -- Setup lazy.nvim
 require("lazy").setup({

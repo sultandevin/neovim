@@ -88,12 +88,25 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- FileType
-
 vim.filetype.add({
 	filename = {
 		["docker-compose.yml"] = "yaml.docker-compose",
 		["docker-compose.yaml"] = "yaml.docker-compose",
 		["compose.yml"] = "yaml.docker-compose",
 		["compose.yaml"] = "yaml.docker-compose",
+	},
+})
+
+vim.diagnostic.config({
+	virtual_text = {
+		severity = { min = vim.diagnostic.severity.WARN },
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = true,
 	},
 })
