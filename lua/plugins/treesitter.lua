@@ -4,14 +4,6 @@ return {
 		lazy = false,
 		branch = "master",
 		build = ":TSUpdate",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-context",
-			config = function()
-				require("treesitter-context").setup({
-					max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
-				})
-			end,
-		},
 		-- event = { "BufReadPost", "BufNewFile" },
 		-- cmd = { "TSUpdate", "TSInstall" },
 		config = function()
