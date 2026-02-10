@@ -48,3 +48,12 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 	vim.api.nvim_set_hl(0, group, {})
 end
+
+-- Transparent floating windows for all themes
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+	end,
+})

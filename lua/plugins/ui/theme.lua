@@ -1,5 +1,14 @@
 return {
-	{ "projekt0n/github-nvim-theme" },
+	{
+		"projekt0n/github-nvim-theme",
+		config = function()
+			require("github-theme").setup({
+				options = {
+					transparent = true,
+				},
+			})
+		end,
+	},
 	{
 		"Shatur/neovim-ayu",
 		lazy = false,
@@ -21,8 +30,23 @@ return {
 			})
 		end,
 	},
-	"rebelot/kanagawa.nvim",
-	"catppuccin/nvim",
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				transparent = true,
+			})
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+			})
+		end,
+	},
 	{
 		"sainnhe/gruvbox-material",
 		lazy = false,
@@ -43,7 +67,7 @@ return {
 				dim_inactive_windows = false,
 				lualine_bold = false,
 			})
-			vim.cmd.colorscheme("gruvbox-material")
+			vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 }
