@@ -31,7 +31,7 @@ return {
       },
       keymap = {
         preset = "default",
-        ["<C-x>o"] = {
+        ["<C-x>"] = {
           "show",
           "show_documentation",
           "hide_documentation",

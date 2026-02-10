@@ -5,12 +5,12 @@ vim.o.winborder = "rounded"
 vim.o.softtabstop = 2
 
 -- Indentation
-vim.o.tabstop = 2 -- Tab Width
-vim.o.shiftwidth = 2 -- Indent Width
-vim.o.softtabstop = 2 -- Soft Tab Stop
-vim.o.expandtab = true -- Use Spaces Instead of Tabs
-vim.o.smartindent = true -- Smart Indentation
-vim.o.autoindent = true -- Copy indent from current line
+vim.o.tabstop = 2                      -- Tab Width
+vim.o.shiftwidth = 2                   -- Indent Width
+vim.o.softtabstop = 2                  -- Soft Tab Stop
+vim.o.expandtab = true                 -- Use Spaces Instead of Tabs
+vim.o.smartindent = true               -- Smart Indentation
+vim.o.autoindent = true                -- Copy indent from current line
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
 
 -- Search
@@ -32,7 +32,7 @@ vim.o.signcolumn = "yes"
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 vim.cmd(":hi statusline guibg=none")
 vim.o.cmdheight = 1
-vim.o.lazyredraw = true
+vim.o.lazyredraw = false
 vim.o.synmaxcol = 300
 
 -- File handling
@@ -51,11 +51,11 @@ local map = vim.keymap.set
 
 -- Default Keymaps
 map("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" })
-map("n", "<leader>w", ":w<CR>", { desc = "Save File" })
-map("n", "<leader>d", ":bd<CR>", { desc = "Close Buffer" })
-map("n", "<leader>q", ":q<CR>", { desc = "Quit NeoVim" })
+map("n", "<leader>w", ":write<CR>", { desc = "Save File" })
+map("n", "<leader>d", ":bdelete<CR>", { desc = "Close Buffer" })
+map("n", "<leader>q", ":qall!<CR>", { desc = "Quit NeoVim" })
 map("n", "<leader>gf", function()
-	vim.lsp.buf.format({ timeout_ms = 2000 })
+  vim.lsp.buf.format({ timeout_ms = 2000 })
 end, { desc = "Format File" })
 map("n", "<leader>e", ":e!<CR>", { desc = " File" })
 -- map("i", "<C-c>", vim.lsp.completion.get)
@@ -83,30 +83,30 @@ map("n", "<leader>ta", ":LspTypescriptSourceAction<CR>", { desc = "TS Actions" }
 
 -- Open help in vertical split
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "help",
-	command = "wincmd L",
+  pattern = "help",
+  command = "wincmd L",
 })
 
 -- FileType
 vim.filetype.add({
-	filename = {
-		["docker-compose.yml"] = "yaml.docker-compose",
-		["docker-compose.yaml"] = "yaml.docker-compose",
-		["compose.yml"] = "yaml.docker-compose",
-		["compose.yaml"] = "yaml.docker-compose",
-	},
+  filename = {
+    ["docker-compose.yml"] = "yaml.docker-compose",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+    ["compose.yml"] = "yaml.docker-compose",
+    ["compose.yaml"] = "yaml.docker-compose",
+  },
 })
 
 vim.diagnostic.config({
-	virtual_text = {
-		severity = { min = vim.diagnostic.severity.WARN },
-	},
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
-	float = {
-		border = "rounded",
-		source = true,
-	},
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.WARN },
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = true,
+  },
 })

@@ -31,6 +31,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = "bigfile",
 	callback = function(ev)
 		vim.b.minianimate_disable = true
+		vim.b.miniindentscope_disable = true
+		vim.b.minicursorword_disable = true
+		vim.b.minisurround_disable = true
 
 		vim.schedule(function()
 			vim.bo[ev.buf].syntax = vim.filetype.match({ buf = ev.buf }) or ""
