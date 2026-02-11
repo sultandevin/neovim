@@ -5,12 +5,12 @@ return {
 		picker = {
 			prompt = " > ",
 			layout = {
-				preset = "ivy",
-				preview = true,
-				-- layout = {
-				-- 	width = 0.7,
-				-- 	height = 0.7,
-				-- },
+				preset = "telescope",
+				preview = false,
+				layout = {
+					width = 0.5,
+					height = 0.5,
+				},
 			},
 			icons = {
 				files = {
