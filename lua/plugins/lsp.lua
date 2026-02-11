@@ -23,6 +23,9 @@ return {
         "biome",
         "tailwindcss",
         "svelte",
+        -- Ruby
+        "rubocop",
+        "ruby_lsp",
         -- Lua/Vim
         "lua_ls",
         "stylua",
