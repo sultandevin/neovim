@@ -16,6 +16,8 @@ return {
     },
     config = function()
       vim.lsp.enable({
+        -- Bash
+        "bashls",
         -- Javascript/Typescript
         "tsgo",
         -- "vtsls",

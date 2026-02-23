@@ -50,12 +50,13 @@ vim.o.backspace = "indent,eol,start"
 local map = vim.keymap.set
 
 -- Default Keymaps
+map("i", "jk", "<Esc>", { noremap = true, silent = true })
 map("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save & Source File" })
 map("n", "<leader>w", ":write<CR>", { desc = "Save File" })
 map("n", "<leader>d", ":bdelete<CR>", { desc = "Close Buffer" })
 map("n", "<leader>q", ":qall!<CR>", { desc = "Quit NeoVim" })
 map("n", "<leader>gf", function()
-  vim.lsp.buf.format({ timeout_ms = 2000 })
+  vim.lsp.buf.format({ timeout_ms = 4000 })
 end, { desc = "Format File" })
 map("n", "<leader>e", ":e!<CR>", { desc = " File" })
 -- map("i", "<C-c>", vim.lsp.completion.get)
