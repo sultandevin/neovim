@@ -36,7 +36,6 @@ return {
         "basedpyright",
         "ruff",
         -- Github
-        "copilot",
         "gh_actions_ls",
         -- Docker
         "docker_language_server",

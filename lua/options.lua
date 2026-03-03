@@ -88,6 +88,12 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "wincmd L",
 })
 
+-- Treesitter
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+vim.wo[0][0].foldmethod = 'expr'
+
 -- FileType
 vim.filetype.add({
   filename = {
