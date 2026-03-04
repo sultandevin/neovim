@@ -47,6 +47,15 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	pattern = "*", -- Apply to all files
 })
 
+-- Enable treesitter highlighting and indentation
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "ruby", "javascript", "typescript", "tsx", "json", "sql", "lua", "vim", "embedded_template" },
+	callback = function()
+		vim.treesitter.start()
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})
+
 -- Hide all semantic highlights
 for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 	vim.api.nvim_set_hl(0, group, {})
