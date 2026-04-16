@@ -21,10 +21,13 @@ return {
         -- Javascript/Typescript
         "tsgo",
         -- "vtsls",
-        "emmet_ls",
+        "emmet_language_server",
+        "oxfmt",
+        "oxlint",
         "biome",
         "tailwindcss",
         "svelte",
+        -- "angularls",
         -- Ruby
         "rubocop",
         "ruby_lsp",

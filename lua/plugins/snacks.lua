@@ -44,11 +44,11 @@ return {
       desc = "Find Files",
     },
     {
-      "<C-p>",
+      "<leader>fr",
       function()
-        Snacks.picker.files()
+        Snacks.picker.recent()
       end,
-      desc = "Find Files",
+      desc = "Find Recent Files",
     },
     {
       "<leader>gL",

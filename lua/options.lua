@@ -34,6 +34,7 @@ vim.cmd(":hi statusline guibg=none")
 vim.o.cmdheight = 1
 vim.o.lazyredraw = false
 vim.o.synmaxcol = 300
+vim.o.shortmess = "ltToOCFw"
 
 -- File handling
 vim.o.backup = false

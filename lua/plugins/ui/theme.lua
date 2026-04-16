@@ -3,9 +3,9 @@ return {
 		"projekt0n/github-nvim-theme",
 		config = function()
 			require("github-theme").setup({
-				options = {
-					transparent = true,
-				},
+				-- options = {
+				-- 	transparent = true,
+				-- },
 			})
 		end,
 	},
@@ -34,7 +34,7 @@ return {
 		"rebelot/kanagawa.nvim",
 		config = function()
 			require("kanagawa").setup({
-				transparent = true,
+				-- transparent = true,
 			})
 		end,
 	},
@@ -43,7 +43,7 @@ return {
 		name = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
-				transparent_background = true,
+				-- transparent_background = true,
 			})
 		end,
 	},
@@ -52,7 +52,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.g.gruvbox_material_transparent_background = 1
+			-- vim.g.gruvbox_material_transparent_background = 1
 		end,
 	},
 	{
@@ -67,7 +67,8 @@ return {
 				dim_inactive_windows = false,
 				lualine_bold = false,
 			})
-			vim.cmd.colorscheme("catppuccin-mocha")
+			vim.cmd.colorscheme("github_dark_default")
+			-- vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 }
