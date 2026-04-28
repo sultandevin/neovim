@@ -6,11 +6,6 @@ return {
       prompt = " > ",
       layout = {
         preset = "default",
-        -- preview = false,
-        -- layout = {
-        --   width = 0.5,
-        --   height = 0.5,
-        -- },
       },
       icons = {
         files = {
@@ -19,6 +14,7 @@ return {
       },
     },
     lazygit = {},
+    image = {},
   },
   keys = {
     -- find
@@ -65,13 +61,6 @@ return {
       desc = "Help",
     },
     -- gh
-    {
-      "<leader>gt",
-      function ()
-      Snacks.git.blame_line()
-      end,
-      desc = "View Git Inline Blame"
-    },
     {
       "<leader>gi",
       function()
