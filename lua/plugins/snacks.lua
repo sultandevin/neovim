@@ -5,7 +5,8 @@ return {
     picker = {
       prompt = " > ",
       layout = {
-        preset = "default",
+        -- preset = "dropdown",
+        preset = "default"
       },
       icons = {
         files = {
@@ -13,7 +14,12 @@ return {
         },
       },
     },
-    lazygit = {},
+    lazygit = {
+      win = {
+        width = 0.98,
+        height = 0.98,
+      },
+    },
     image = {},
   },
   keys = {
