@@ -19,7 +19,7 @@ return {
         -- Bash
         "bashls",
         -- Javascript/Typescript
-        "tsgo",
+        "tsc",
         -- "vtsls",
         "emmet_language_server",
         "oxfmt",
