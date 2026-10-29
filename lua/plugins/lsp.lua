@@ -44,6 +44,8 @@ return {
         "docker_language_server",
         -- Rust
         "rust_analyzer",
+        -- Go
+        "gopls",
         -- Databases
         "postgres_lsp",
         -- General
